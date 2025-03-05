@@ -18,7 +18,7 @@
         <nav>
             <a href="mainPage.html"><img src="images/logo-cutout.png"></a>
             <div class="nav-links" id="navLinks">
-                <i class="fa fa-times" onclick="hideMenu()"></i>
+              <i class="fa fa-times" id="closeMenu" onclick="hideMenu()"></i>
                 <ul>
                   <li><a href="mainPage.html">Pagrindinis</a></li>
                   <li><a href="about.html">Apie mus</a></li>
@@ -27,7 +27,7 @@
                   <li><a href="">Servisas</a></li>
                 </ul>
             </div>
-            <i class="fa fa-bars" onclick="showMenu()"></i>
+            <i class="fa fa-bars" id="menuButton" onclick="showMenu()"></i>
         </nav>
         <h1>Automobiliai</h1>
     </section>
@@ -87,15 +87,44 @@
         </div>
       </section>
 
-    <script>/*javaScript for toggle menu*/
-        var navLinks = document.getElementById("navLinks");
-        function showMenu() {
-            navLinks.style.right = "0";
-        }
-        function hideMenu() {
-            navLinks.style.right = "-200px";
-        }
-    </script>
+      <script>/*javaScript for toggle menu*/
+        // Get elements
+       var navLinks = document.getElementById("navLinks");
+       var menuButton = document.getElementById("menuButton");
+       var closeMenu = document.getElementById("closeMenu");
+       var lastScrollTop = 0;
+ 
+       // Show menu function
+       function showMenu() {
+           navLinks.style.right = "0";
+       }
+ 
+       // Hide menu function
+       function hideMenu() {
+           navLinks.style.right = "-200px";
+       }
+ 
+       // Detect scroll direction
+       window.addEventListener("scroll", function () {
+           let scrollTop = window.scrollY || document.documentElement.scrollTop;
+ 
+           if (scrollTop > lastScrollTop) {
+               // User is scrolling down - hide the menu
+               hideMenu();
+           } 
+           // Update last scroll position
+           lastScrollTop = scrollTop;
+       });
+ 
+       // Hide menu when clicking outside
+       document.addEventListener("click", function (event) {
+           // Exclude menu button and close button from this check
+           if (!navLinks.contains(event.target) && event.target !== menuButton && event.target !== closeMenu) {
+               hideMenu();
+           }
+       });
+ 
+     </script>
 
 </body>
 
