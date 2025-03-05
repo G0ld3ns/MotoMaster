@@ -30,6 +30,7 @@ nav img{
     display: inline-block;
     padding: 8px 12px;
     position: relative;
+    text-align: center;
 }
 .nav-links ul li a{
     color:#fff;
@@ -40,7 +41,7 @@ nav img{
     content: '';
     width: 0%;
     height: 2px;
-    background: #451e5b;
+    background: rgb(152, 57, 157);
     display: block;
     margin: auto;
     transition: 0.5s;
@@ -95,7 +96,7 @@ nav .fa{
         display: block;
     }
     .nav-links{
-        position: absolute;
+        position: fixed;
         background: #451e5b;
         height: 100vh;
         width: 200px;
