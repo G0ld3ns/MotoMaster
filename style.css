@@ -30,7 +30,6 @@ nav img{
     display: inline-block;
     padding: 8px 12px;
     position: relative;
-    text-align: center;
 }
 .nav-links ul li a{
     color:#fff;
@@ -41,7 +40,7 @@ nav img{
     content: '';
     width: 0%;
     height: 2px;
-    background: rgb(152, 57, 157);
+    background: #451e5b;
     display: block;
     margin: auto;
     transition: 0.5s;
@@ -96,7 +95,7 @@ nav .fa{
         display: block;
     }
     .nav-links{
-        position: fixed;
+        position: absolute;
         background: #451e5b;
         height: 100vh;
         width: 200px;
@@ -129,7 +128,7 @@ h1{
     font-weight: 600;
 }
 p{
-    color:#777;
+    color:black;
     font-size: 14px;
     font-weight: 300;
     line-height: 22px;
@@ -143,7 +142,7 @@ p{
 }
 .course-col{
     flex-basis: 31%;
-    background: #fff3f3;
+    background: #cdacd8;
     border-radius: 10px;
     margin-bottom: 5%;
     padding: 20px 12px;
@@ -273,7 +272,7 @@ h3{
     border-radius: 10px;
     margin-bottom: 5%;
     text-align: left;
-    background:#fff3f3;
+    background:#cdacd8;
     padding: 25px;
     cursor: pointer;
     display: flex;
@@ -286,6 +285,7 @@ h3{
 }*/
 .review-col p{
     padding: 0;
+    color: black;
 }
 .review-col h3{
     margin-top: 15px;
