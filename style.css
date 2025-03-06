@@ -40,7 +40,7 @@ nav img{
     content: '';
     width: 0%;
     height: 2px;
-    background: #451e5b;
+    background: #ac65d6;
     display: block;
     margin: auto;
     transition: 0.5s;
@@ -95,9 +95,9 @@ nav .fa{
         display: block;
     }
     .nav-links{
-        position: absolute;
+        position: fixed;
         background: #451e5b;
-        height: 100vh;
+        height: 150vh;
         width: 200px;
         top: 0;
         right: -200px;
@@ -273,7 +273,7 @@ h3{
     margin-bottom: 5%;
     text-align: left;
     background:#cdacd8;
-    padding: 25px;
+    padding:25px;
     cursor: pointer;
     display: flex;
 }
@@ -284,15 +284,19 @@ h3{
     border-radius: 50%;
 }*/
 .review-col p{
-    padding: 0;
+    flex-grow: 1;
     color: black;
+    text-align: center;
 }
 .review-col h3{
-    margin-top: 15px;
+    margin-bottom: 3px;
     text-align: left;
 }
 .review-col .fa{
     color: #451e5b;
+}
+.review-bottom{
+    margin-bottom: 3px;
 }
 .review-col .far{
     color: #451e5b;
