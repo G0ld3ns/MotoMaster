@@ -103,7 +103,7 @@ nav .fa{
         right: -200px;
         text-align: left;
         z-index: 2;
-        transition: 1s;
+        transition: 0.7s;
     }
     nav .fa{
         display: block;
@@ -395,5 +395,108 @@ h3{
     }
     .about-col img{
         border-radius: 10px;
+    }
+}
+
+.card-container {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* Card wrapper */
+.maincontainer {
+    flex-basis: 42%;
+    margin-bottom: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 20px;
+    perspective: 1000px;
+}
+
+/* The card */
+.thecard {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+    display: flex;
+}
+
+.thecard.flip {
+    transform: rotateY(180deg);
+}
+
+/* Front and back styles */
+.card_front, .card_back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Image styling */
+.card_front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+/* Overlay title */
+.card_front h3 {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    width: 80%;
+    text-align: center;
+}
+
+/* Back card styling */
+.card_back {
+    background: red;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.card_back p {
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 10px 0;
+    text-align: center;
+    overflow-y: auto;
+    max-height: 80%;
+}
+
+@media(max-width: 800px){
+    .maincontainer{
+        align-items: center;
+        flex-basis: 90%;
     }
 }

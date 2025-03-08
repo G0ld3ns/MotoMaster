@@ -32,7 +32,95 @@
         <h1>Automobiliai</h1>
     </section>
 
-    <section class="about-us">
+
+    <div class="card-container">
+      <div class="maincontainer">
+          <div class="thecard" onclick="flipCard(this)">
+              <div class="card_front">
+                  <img src="images/mers.jpg" alt="Car Image">
+                  <h3>Mercedes-Benz CLS53 AMG</h3>
+              </div>
+              <div class="card_back">
+                  <h3>Mercedes-Benz CLS53 AMG</h3>
+                  <p>
+                    Mercedes-Benz CLS 53 AMG – tai prabangus ir sportiškas keturių durų kupė, sujungiantis eleganciją, galią ir modernias technologijas. Šis modelis skirtas tiems, kurie vertina aukščiausio lygio komfortą bei dinamišką vairavimo patirtį. <br>
+                    Variklis: 3.0 L, 6 cilindrų, I6 <br>
+                    Galia: 435 AG (320 kW), 520 Nm <br>
+                    Varantieji ratai: 4MATIC, visų varančiųjų ratų sistema <br>
+                    Pavarų dėžė: 9G-TRONIC automatinė su AMG Speedshift technologija <br>
+                    Kaina: 56,000 €
+                  </p>
+              </div>
+          </div>
+      </div>
+  
+      <div class="maincontainer">
+          <div class="thecard" onclick="flipCard(this)">
+              <div class="card_front">
+                  <img src="images/auto2.jpg" alt="Car Image">
+                  <h3>Volkswagen Golf GTI MK8</h3>
+              </div>
+              <div class="card_back">
+                  <h3>Volkswagen Golf GTI MK8</h3>
+                  <p>
+                      Volkswagen Golf GTI MK8 – tai aštuntosios kartos legendinis sportinis hečbekas, pasižymintis dinamišku vairavimu, moderniomis technologijomis ir praktiškumu. Šis modelis yra puikus pasirinkimas vairuotojams, ieškantiems subalansuoto automobilio, kuris tinka tiek kasdieniam naudojimui, tiek sportiškesniam vairavimo stiliui.
+                      <br>Variklis: 2.0 L, 4 cilindrų, I4 Turbo 
+                      <br>Galia: 245 AG (180 kW), 370 Nm 
+                      <br>Varantieji ratai: Priekiniais ratais varomas (FWD) 
+                      <br>Pavarų dėžė: automatinė 7 bėgių DSG 
+                      <br>Kaina: 42,000 €
+                  </p>
+              </div>
+          </div>
+      </div>
+      <div class="maincontainer">
+        <div class="thecard" onclick="flipCard(this)">
+            <div class="card_front">
+                <img src="images/auto2.jpg" alt="Car Image">
+                <h3>Front of card</h3>
+            </div>
+            <div class="card_back">
+                <h3>Back of card</h3>
+                <p>
+                    Volkswagen Golf GTI MK8 – tai aštuntosios kartos legendinis sportinis hečbekas, pasižymintis dinamišku vairavimu, moderniomis technologijomis ir praktiškumu. Šis modelis yra puikus pasirinkimas vairuotojams, ieškantiems subalansuoto automobilio, kuris tinka tiek kasdieniam naudojimui, tiek sportiškesniam vairavimo stiliui.
+                    <br>Variklis: 2.0 L, 4 cilindrų, I4 Turbo 
+                    <br>Galia: 245 AG (180 kW), 370 Nm 
+                    <br>Varantieji ratai: Priekiniais ratais varomas (FWD) 
+                    <br>Pavarų dėžė: automatinė 7 bėgių DSG 
+                    <br>Kaina: 42,000 €
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="maincontainer">
+      <div class="thecard" onclick="flipCard(this)">
+          <div class="card_front">
+              <img src="images/auto2.jpg" alt="Car Image">
+              <h3>Front of card</h3>
+          </div>
+          <div class="card_back">
+              <h3>Back of card</h3>
+              <p>
+                  Volkswagen Golf GTI MK8 – tai aštuntosios kartos legendinis sportinis hečbekas, pasižymintis dinamišku vairavimu, moderniomis technologijomis ir praktiškumu. Šis modelis yra puikus pasirinkimas vairuotojams, ieškantiems subalansuoto automobilio, kuris tinka tiek kasdieniam naudojimui, tiek sportiškesniam vairavimo stiliui.
+                  <br>Variklis: 2.0 L, 4 cilindrų, I4 Turbo 
+                  <br>Galia: 245 AG (180 kW), 370 Nm 
+                  <br>Varantieji ratai: Priekiniais ratais varomas (FWD) 
+                  <br>Pavarų dėžė: automatinė 7 bėgių DSG 
+                  <br>Kaina: 42,000 €
+              </p>
+          </div>
+      </div>
+  </div>
+  
+      <!-- Repeat for more cards if needed -->
+  </div>
+
+    
+
+
+
+    <!-- <section class="about-us">
 
       <div class="row">
         <div class="about-col">
@@ -74,7 +162,7 @@
 
       </div>
 
-    </section>
+    </section> -->
 
     <section class="footer">
          <h4>Neradote patinkančio automobilio? Kreipkitės!</h4>
@@ -123,6 +211,10 @@
                hideMenu();
            }
        });
+
+       function flipCard(card) {
+    card.classList.toggle("flip");
+}
  
      </script>
 
