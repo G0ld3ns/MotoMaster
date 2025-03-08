@@ -399,59 +399,62 @@ h3{
 }
 
 .card-container {
-    position: relative;
     width: 80%;
     margin: auto;
     text-align: center;
-    padding-top: 100px;
-    display: flex; 
+    padding-top: 50px;
+    display: flex;
     justify-content: space-between;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
 }
 
+/* Card wrapper */
 .maincontainer {
     flex-basis: 42%;
     margin-bottom: 5%;
-    transition: 0.5s;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     border-radius: 20px;
+    perspective: 1000px;
 }
 
+/* The card */
 .thecard {
     width: 100%;
-    height: 100%;
+    height: 300px;
     position: relative;
-    box-sizing: border-box;
     cursor: pointer;
     transform-style: preserve-3d;
-    transition: all 0.5s ease;
+    transition: transform 0.5s ease;
+    display: flex;
 }
 
 .thecard.flip {
     transform: rotateY(180deg);
-
 }
 
+/* Front and back styles */
 .card_front, .card_back {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
     border-radius: 20px;
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-.card_front{
-    z-index: 1;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
+/* Image styling */
 .card_front img {
     width: 100%;
     height: 100%;
@@ -459,9 +462,10 @@ h3{
     border-radius: 20px;
 }
 
+/* Overlay title */
 .card_front h3 {
     position: absolute;
-    bottom: 10px;
+    top: 10px;
     left: 50%;
     transform: translateX(-50%);
     background: rgba(0, 0, 0, 0.5);
@@ -470,41 +474,29 @@ h3{
     font-weight: bold;
     padding: 5px 10px;
     border-radius: 5px;
-    width: 90%;
+    width: 80%;
     text-align: center;
 }
 
+/* Back card styling */
 .card_back {
-    position: absolute;
     background: red;
     color: white;
     transform: rotateY(180deg);
-    z-index: 1;
 }
 
-
-.card_back h3 {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 5px 10px;
-    border-radius: 5px;
-    width: 90%;
+.card_back p {
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 10px 0;
     text-align: center;
+    overflow-y: auto;
+    max-height: 80%;
 }
 
-@media (max-width: 700px) {
-    .card-container {
-        flex-direction: column;
+@media(max-width: 800px){
+    .maincontainer{
         align-items: center;
-    }
-    
-    .maincontainer {
-        flex-basis: 100%;
+        flex-basis: 90%;
     }
 }
