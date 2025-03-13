@@ -468,9 +468,8 @@ h3{
     top: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.5);
     color: white;
-    font-size: 18px;
+    font-size: clamp(18px, 1.5vw, 25px);
     font-weight: bold;
     padding: 5px 10px;
     border-radius: 5px;
@@ -487,12 +486,18 @@ h3{
 
 .card_back p {
     color: black;
-    font-size: 14px;
+    font-size: clamp(15px, 1.5vw, 17px);
     line-height: 1.4;
     margin: 10px 0;
     text-align: center;
     overflow-y: auto;
     max-height: 80%;
+    text-wrap: balance;
+}
+.card_back h3 {
+    color:white;
+    font-weight: bold;
+    font-size: clamp(18px, 1.5vw, 32px);
 }
 
 @media(max-width: 800px){
