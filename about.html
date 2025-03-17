@@ -27,29 +27,75 @@
                   <li><a href="">Servisas</a></li>
                 </ul>
             </div>
-            <i class="fa fa-bars" id="menuButton" onclick="showMenu()"></i>
         </nav>
         <h1>Apie mus</h1>
     </section>
 
     <section class="about-us">
-
       <div class="row">
-        <div class="about-col">
-          <h1>Mūsų istorija</h1>
-          <p>
-            Kaip viskas prasidėjo? Nuo svajonės sukurti vietą, kurioje automobiliai būtų ne tik parduodami, bet ir prižiūrimi su meile. Pradėjome mažai, bet su dideliu užsidegimu – taisėme automobilius, padėjome klientams rasti tinkamas detales, kol galiausiai tapome patikimu automobilių paslaugų centru. Šiandien mūsų komanda sujungia patirtį, profesionalumą ir aistrą automobiliams, kad kiekvienas klientas jaustųsi užtikrintas savo pasirinkimu!
-          </p>
-          <a href="" class="hero-btn red-btn">Apsilankyk pas mus!</a>
-        </div>
-
-        <div class="about-col">
-          <img src="images/about_us.jpg">
-        </div>
-
+          <div class="about-col">
+              <h1>Mūsų istorija</h1>
+              <p>Kaip viskas prasidėjo? Nuo svajonės sukurti vietą, kurioje automobiliai būtų ne tik parduodami, bet ir prižiūrimi su meile.</p>
+              <a href="#contact-us" class="hero-btn red-btn">Susisiekite su mumis</a>
+          </div>
+          <div class="about-col">
+              <img src="images/about_us.jpg">
+          </div>
       </div>
+  </section>
+
+  <div class="transition"></div>
+
+    <section class="location">
+      <h2 class="section-title">Kontaktai</h2>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d590224.4300762623!2d24.595094421230336!3d54.69969658527677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dd93fb5c6408f5%3A0x400d18c70e9dc40!2sVilnius%2C%20Vilniaus%20m.%20sav.!5e0!3m2!1slt!2slt!4v1742230809733!5m2!1slt!2slt" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
 
     </section>
+
+    
+    <section class="contact-us" id="contact-us">
+      <div class="row">
+          <div class="contact-col">
+              <div>
+                  <i class="fa fa-home"></i>
+                  <span>
+                      <h5>Adresas</h5>
+                      <p>Gedimino pr. 1, Vilnius, Lietuva</p>
+                  </span>
+              </div>
+  
+              <div>
+                  <i class="fa fa-phone"></i>
+                  <span>
+                      <h5>Telefonas</h5>
+                      <p>+370 600 12345</p>
+                  </span>
+              </div>
+  
+              <div>
+                  <i class="fa fa-envelope"></i>
+                  <span>
+                      <h5>El. paštas</h5>
+                      <p>info@motormaster.lt</p>
+                  </span>
+              </div>
+          </div>
+  
+          <div class="contact-col">
+              <form action="form-handler.php" method="post">
+                  <input type="text" name="name" placeholder="Įveskite vardą" required>
+                  <input type="text" name="phone" placeholder="Įveskite telefono numerį" required>
+                  <input type="email" name="email" placeholder="Įveskite el. pašto adresą" required>
+                  <textarea name="message" rows="8" placeholder="Jūsų žinutė" required></textarea>
+                  <button type="submit" class="hero-btn red-btn">Siųsti žinutę</button>
+              </form>
+          </div>
+      </div>
+  </section>
+  
+    
+    
 
     <section class="footer">
          <h4>Apie mus</h4>
@@ -62,7 +108,10 @@
         </div>
       </section>
 
-      <script>/*javaScript for toggle menu*/
+      <script>
+      
+      
+      /*javaScript for toggle menu*/
         // Get elements
        var navLinks = document.getElementById("navLinks");
        var menuButton = document.getElementById("menuButton");
