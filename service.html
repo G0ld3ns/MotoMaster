@@ -9,17 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .calendar-container { max-width: 900px; margin: auto; padding: 20px; border-radius: 15px; background: #f8f9fa; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); }
-        .calendar-header { display: flex; justify-content: space-between; margin-bottom: 10px; }
-        .calendar-grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 10px; }
-        .calendar-row { display: contents; }
-        .day-header, .time-slot { font-weight: bold; text-align: center; padding: 12px; background: #fff; border-radius: 10px; }
-        .calendar-cell { padding: 12px; text-align: center; border-radius: 10px; cursor: pointer; transition: 0.3s ease-in-out; background: #d4edda; }
-        .pending { background: orange; color: black; }
-        .booked { background: red; color: white; }
-        .calendar-cell:hover { transform: scale(1.05); }
-    </style>
 </head>
 
 <body>
@@ -27,13 +16,13 @@
         <nav>
             <a href="mainPage.html"><img src="images/logo-cutout.png"></a>
             <div class="nav-links" id="navLinks">
-              <i class="fa fa-times" id="closeMenu" onclick="hideMenu()"></i>
+                <i class="fa fa-times" id="closeMenu" onclick="hideMenu()"></i>
                 <ul>
-                  <li><a href="mainPage.html">Pagrindinis</a></li>
-                  <li><a href="about.html">Apie mus</a></li>
-                  <li><a href="vehicles.html">Automobiliai</a></li>
-                  <li><a href="">Dalys</a></li>
-                  <li><a href="service.html">Servisas</a></li>
+                    <li><a href="mainPage.html">Pagrindinis</a></li>
+                    <li><a href="about.html">Apie mus</a></li>
+                    <li><a href="vehicles.html">Automobiliai</a></li>
+                    <li><a href="">Dalys</a></li>
+                    <li><a href="service.html">Servisas</a></li>
                 </ul>
             </div>
             <i class="fa fa-bars" id="menuButton" onclick="showMenu()"></i>
@@ -43,12 +32,23 @@
 
     <div class="calendar-container">
         <div class="calendar-header">
-            <button id="prevWeek">&#9664;</button>
+            <button id="prevDays">&#9664;</button>
             <h3 id="weekRange"></h3>
-            <button id="nextWeek">&#9654;</button>
+            <button id="nextDays">&#9654;</button>
         </div>
         <div class="calendar-grid" id="calendarGrid"></div>
     </div>
+
+    <section class="footer">
+        <h4>Neradote patinkančio automobilio? <a href="about.html#contact-us" class="contact-link">Kreipkitės!</a></h4>
+        <p>Automobiliai, jų priežiūra ir dalys – mes žinome, kaip juos paversti tobulais!<br> Parduodame, taisome ir užsakome visas reikiamas dalis, kad jūsų kelionės būtų sklandžios ir be rūpesčių.</p>
+        <div class="icons">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-linkedin"></i>
+        </div>
+    </section>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -57,33 +57,35 @@
             let currentDate = new Date();
             let bookings = JSON.parse(localStorage.getItem("bookings")) || {};
             const availableTimes = ["09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00"];
-            
-            function getWeekDates(date) {
-                let start = new Date(date);
-                start.setDate(start.getDate() - start.getDay());
+
+            // Function to get 3 consecutive days (current day + next 2)
+            function getNextDays(date) {
                 let dates = [];
-                for (let i = 0; i < 7; i++) {
-                    let day = new Date(start);
-                    day.setDate(start.getDate() + i);
+                for (let i = 0; i < 3; i++) { // Fetch 3 days starting from the current date
+                    let day = new Date(date);
+                    day.setDate(date.getDate() + i);
                     dates.push(day);
                 }
                 return dates;
             }
-            
+
+            // Generate the calendar for 3 days
             function generateCalendar() {
-                let weekDates = getWeekDates(currentDate);
-                weekRange.textContent = `${weekDates[0].toLocaleDateString()} - ${weekDates[6].toLocaleDateString()}`;
+                let nextDays = getNextDays(currentDate); // Get 3 days starting from today
+                weekRange.textContent = `${nextDays[0].toLocaleDateString()} - ${nextDays[2].toLocaleDateString()}`;
                 calendarGrid.innerHTML = "";
-                
+
+                // Create the header row with 3 days
                 let headerRow = document.createElement("div");
                 headerRow.classList.add("calendar-row", "header-row");
-                headerRow.innerHTML = `<div class='time-slot'></div>` + weekDates.map(day => `<div class='day-header'>${day.toLocaleDateString()}</div>`).join("");
+                headerRow.innerHTML = `<div class='time-slot'></div>` + nextDays.map(day => `<div class='day-header'>${day.toLocaleDateString()}</div>`).join("");
                 calendarGrid.appendChild(headerRow);
-                
+
+                // Create the rows for each available time
                 availableTimes.forEach(time => {
                     let row = document.createElement("div");
                     row.classList.add("calendar-row");
-                    row.innerHTML = `<div class='time-slot'>${time}</div>` + weekDates.map(day => {
+                    row.innerHTML = `<div class='time-slot'>${time}</div>` + nextDays.map(day => {
                         let dateString = `${day.getFullYear()}-${day.getMonth() + 1}-${day.getDate()}`;
                         let booking = bookings[dateString]?.[time];
                         let statusClass = booking ? (booking.name === "Admin" ? "booked" : "pending") : "available";
@@ -92,48 +94,67 @@
                     }).join("");
                     calendarGrid.appendChild(row);
                 });
-                
+
                 document.querySelectorAll(".calendar-cell").forEach(cell => {
                     cell.addEventListener("click", function() {
                         let date = this.dataset.date;
                         let time = this.dataset.time;
-                        
+
                         let name = prompt("Įveskite vardą:");
                         if (!name) return;
                         let carMake = prompt("Įveskite automobilio markę:");
                         let vin = prompt("Įveskite VIN numerį:");
-                        
+
                         if (!bookings[date]) bookings[date] = {};
                         bookings[date][time] = { name, carMake, vin };
-                        
+
                         localStorage.setItem("bookings", JSON.stringify(bookings));
                         generateCalendar();
                     });
                 });
             }
-            
-            document.getElementById("prevWeek").addEventListener("click", function() {
-                currentDate.setDate(currentDate.getDate() - 7);
+
+            document.getElementById("prevDays").addEventListener("click", function() {
+                currentDate.setDate(currentDate.getDate() - 3);
                 generateCalendar();
             });
 
-            document.getElementById("nextWeek").addEventListener("click", function() {
-                currentDate.setDate(currentDate.getDate() + 7);
+            document.getElementById("nextDays").addEventListener("click", function() {
+                currentDate.setDate(currentDate.getDate() + 3);
                 generateCalendar();
             });
-            
+
             generateCalendar();
         });
+
+        /* JavaScript for toggle menu */
+        var navLinks = document.getElementById("navLinks");
+        var menuButton = document.getElementById("menuButton");
+        var closeMenu = document.getElementById("closeMenu");
+        var lastScrollTop = 0;
+
+        function showMenu() {
+            navLinks.style.right = "0";
+        }
+
+        function hideMenu() {
+            navLinks.style.right = "-200px";
+        }
+
+        window.addEventListener("scroll", function () {
+            let scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop) {
+                hideMenu();
+            }
+            lastScrollTop = scrollTop;
+        });
+
+        document.addEventListener("click", function (event) {
+            if (!navLinks.contains(event.target) && event.target !== menuButton && event.target !== closeMenu) {
+                hideMenu();
+            }
+        });
     </script>
-    <section class="footer">
-        <h4>Neradote patinkančio automobilio? <a href="about.html#contact-us" class="contact-link">Kreipkitės!</a></h4>
-         <p>Automobiliai, jų priežiūra ir dalys – mes žinome, kaip juos paversti tobulais!<br> Parduodame, taisome ir užsakome visas reikiamas dalis, kad jūsų kelionės būtų sklandžios ir be rūpesčių.</p>
-        <div class="icons">
-          <i class="fa-brands fa-facebook"></i>
-          <i class="fa-brands fa-twitter"></i>
-          <i class="fa-brands fa-instagram"></i>
-          <i class="fa-brands fa-linkedin"></i>
-        </div>
-      </section>
 </body>
 </html>

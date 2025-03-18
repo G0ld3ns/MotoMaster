@@ -565,3 +565,101 @@ h3{
     margin-bottom: 20px;
 }
 
+
+/* Ensure full width and proper padding */
+.calendar-container {
+    width:80%;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 15px;
+    background: #f8f9fa;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Fix calendar header for days of the week */
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: 100px repeat(3, 1fr); /* Fixed column for time slots and 7 columns for days */
+    grid-template-rows: auto repeat(8, 1fr); /* Fixed number of rows for the time slots and days */
+    gap: 10px;
+    position: relative;
+}
+
+/* Styling for the time slot and header row */
+.calendar-row {
+    display: contents; /* Ensure that each row behaves correctly inside the grid */
+}
+
+.time-slot {
+    font-weight: bold;
+    text-align: center;
+    padding: 12px;
+    background: #fff;
+    border-radius: 10px;
+    position: sticky;
+    left: 0;
+    top: 0;
+    z-index: 1; /* Ensure time slots stay above other content */
+    display: flex;         /* Enable flexbox */
+    justify-content: center; /* Horizontally center the text */
+    align-items: center;   
+}
+
+/* Styling for the day headers */
+.day-header {
+    font-weight: bold;
+    text-align: center;
+    padding: 12px;
+    background: #fff;
+    border-radius: 10px;
+}
+
+/* Grid cell for individual slots */
+.calendar-cell {
+    padding: 12px;
+    text-align: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    background: #d4edda;
+    position: relative;
+    z-index: 0;
+}
+
+.calendar-cell:hover {
+    transform: scale(1.05);
+}
+
+/* Booking status classes */
+.pending {
+    background: orange;
+    color: black;
+}
+
+.booked {
+    background: red;
+    color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .calendar-grid {
+        grid-template-columns: 50px repeat(3, 1fr);
+    }
+
+    .calendar-cell {
+        padding: 8px;
+    }
+}
+
+
