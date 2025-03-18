@@ -403,12 +403,35 @@ h3{
         border-radius: 10px;
     }
 }
+.search-sort {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    gap:20px;
+}
+
+#searchBar {
+    padding: 10px;
+    width: 50%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#sortBy {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
 
 .card-container {
     width: 80%;
     margin: auto;
     text-align: center;
-    padding-top: 50px;
+    padding:20px;
+    gap: 20px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -417,7 +440,7 @@ h3{
 /* Card wrapper */
 .maincontainer {
     flex-basis: 42%;
-    margin-bottom: 5%;
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
