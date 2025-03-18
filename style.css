@@ -439,7 +439,7 @@ h3{
 
 /* Card wrapper */
 .maincontainer {
-    flex-basis: 42%;
+    flex-basis: 40%;
     margin: 0;
     display: flex;
     justify-content: center;
@@ -498,7 +498,7 @@ h3{
     left: 50%;
     transform: translateX(-50%);
     color: white;
-    font-size: clamp(18px, 1.5vw, 25px);
+    font-size: clamp(20px, 1.5vw, 25px);
     font-weight: bold;
     padding: 5px 10px;
     border-radius: 5px;
@@ -508,18 +508,17 @@ h3{
 
 /* Back card styling */
 .card_back {
-    background: #ac65d6;
+    background: linear-gradient(#c383d5, #9617cd);
+
     color: white;
     transform: rotateY(180deg);
 }
 
 .card_back p {
-    color: black;
-    font-size: clamp(15px, 1.5vw, 17px);
+    color: #d8d8d8;
+    font-size: clamp(15px, 2vw, 17px);
     line-height: 1.4;
-    margin: 10px 0;
     text-align: center;
-    overflow-y: auto;
     max-height: 80%;
     text-wrap: balance;
 }
@@ -535,6 +534,51 @@ h3{
         flex-basis: 90%;
     }
 }
+
+/* Style for the button container */
+.card-buttons {
+    display: flex;
+    justify-content: space-between; /* Space between the buttons */
+    margin-top: 10px; /* Space above the buttons */
+    padding-bottom: 10px;
+}
+
+/* Style for each button */
+.card-buttons .btn-more-info, .card-buttons .btn-compare {
+    padding: 10px; /* Padding inside the buttons */
+    font-size: clamp(12px, 1.5vw, 13px);/* Font size */
+    color: white; /* Text color */
+    border: none;
+    border-radius: 20px; /* Rounded corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s ease;
+}
+.btn-more-info{
+    margin-right: 20px;
+}
+
+/* Button hover effect */
+.card-buttons .btn-more-info:hover, .card-buttons .btn-compare:hover {
+    background-color: #0056b3; /* Darker color on hover */
+}
+
+/* Style for "Plačiau" button */
+.card-buttons .btn-more-info {
+    background-color: #ac94f486; /* Green color */
+}
+
+.card-buttons .btn-more-info:hover {
+    background-color:  #AC94F4; /* Darker green on hover */
+}
+
+/* Style for "Įtraukti į palyginimą" button */
+.card-buttons .btn-compare {
+    background-color: #c8a4d485 /* Yellow color */
+}
+
+.card-buttons .btn-compare:hover {
+    background-color: #C8A4D4; /* Darker yellow on hover */
+}  
 
 .location{
     width: 80%;
