@@ -28,6 +28,10 @@ nav img{
     flex: 1;
     text-align: right;
 }
+.nav-links ul {
+    margin: 0; /* Reset default ul margin */
+    padding: 0; /* Reset default ul padding */
+}
 .nav-links ul li{
     list-style: none;
     display: inline-block;
@@ -51,6 +55,47 @@ nav img{
 .nav-links ul li:hover::after{ /*header button line po cursor draginima*/
     width: 100%;
 
+}
+
+.nav-links ul li .signup-button {
+    background: transparent;
+    border: 2px solid #f8f9fa;
+    color: #f8f9fa;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 8px 12px;
+    display: flex; /* Display icon and text in a row */
+    align-items: center; /* Vertically align icon and text */
+    justify-content: center; /* Center content */
+    transition: all 0.3s ease-in-out;
+    margin: 0;
+    width: auto;
+    height: auto;
+}
+.nav-links ul li .signup-button i {
+    font-size: 20px; /* Adjust icon size */
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-links ul li .signup-button:hover {
+    background: #f8f9fa; /* Gold fill on hover */
+    color: #4B226E; /* Dark text */
+}
+
+.nav-links ul li .signup-button:hover i {
+    color: #4B226E;
+}
+
+.nav-links ul li .signup-button:active,
+.nav-links ul li .signup-button.clicked {
+    color: #4B226E; /* Dark text */
+    border: 2px solid #ac65d6;
+}
+
+nav .fa {
+    display: none;
 }
 .text-box{
     width:90%;
@@ -86,14 +131,14 @@ nav img{
     background: #451e5b;
     transition: 1s;
 }
-nav .fa{
-    display: none;
-}
 .transition {
     height: 100px;
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(240,240,240,1) 100%);
 }
-@media(max-width: 900px){
+.nav-links ul li:has(.signup-button)::after {
+    content: none;
+}
+@media(max-width: 1000px){
     .text-box h1{
         font-size: 40px;
     }
@@ -119,7 +164,46 @@ nav .fa{
         cursor: pointer;
     }
     .nav-links ul{
-        padding: 30px;
+        padding: 15px;
+    }
+    .nav-links ul li {
+        display: block; /* Stack items vertically on smaller screens */
+        margin: 5px 0; /* Add some vertical spacing */
+        text-align: left; /* Align text to the left in the vertical menu */
+    }
+    .nav-links ul li a {
+        display: block; /* Make links take full width for easier tapping */
+        text-decoration: none;
+        padding: 8px 0;
+    }
+    .nav-links ul li .signup-button {
+        display: block;
+        width: 100%;
+        margin: 5px 0; /* Reduce vertical margin further */
+        padding: 6px 0; /* Reduce vertical padding for a smaller height */
+        text-align: center;
+        background: transparent; /* Initial transparent background */
+        font-size: 16px; /* Slightly smaller font size */
+        font-weight: 600;
+        cursor: pointer;
+        border-radius: 8px;
+        transition: background-color 0.3s ease-in-out; /* Only transition background */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .nav-links ul li .signup-button:hover {
+        color: #4B226E; /* Dark text on hover */
+    }
+
+    .nav-links ul li .signup-button:hover i {
+        color: #4B226E; /* Dark icon on hover */
+    }
+
+    .nav-links ul li .signup-button::after {
+        content: none; /* Remove the pseudo-element hover line */
     }
 }
 
