@@ -34,6 +34,22 @@ body{
   align-items: center;
   justify-content: center;
 }
+.close-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px; /* Move it to the left */
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.close-btn:hover {
+  color: var(--accent-color);
+  transform: scale(1.2);
+}
 h1{
   font-size: 3rem;
   font-weight: 900;
