@@ -132,6 +132,44 @@ form div.incorrect label{
 form div.incorrect input{
   border-color: #f06272;
 }
+
+form select{
+  box-sizing: border-box;
+  flex-grow: 1;
+  min-width: 0;
+  height: 50px;
+  padding: 0 1em;
+  font: inherit;
+  font-size: 1rem;
+  text-align: left;
+  display: block;
+  border-radius: 0 10px 10px 0;
+  border: 2px solid var(--input-color);
+  border-left: none;
+  background-color: var(--input-color);
+  transition: 150ms ease;
+  appearance: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+form select:hover{
+  border-color: var(--accent-color);
+}
+
+form select:focus{
+  outline: none;
+  border-color: var(--text-color);
+}
+
+div:has(select:focus) > label{
+  background-color: var(--text-color);
+}
+
+form div.incorrect select{
+  border-color: #f06272;
+}
+
 #error-message{
   color:#f06272;
 }
