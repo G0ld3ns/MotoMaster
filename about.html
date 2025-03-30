@@ -25,10 +25,12 @@
                   <li><a href="vehicles.html">Automobiliai</a></li>
                   <li><a href="">Dalys</a></li>
                   <li><a href="service.html">Servisas</a></li>
-                  <li><button class="signup-button">
-                    <i class="fa fa-user" aria-hidden="true"></i>
-                    <span>Paskyra</span>
-                </button></li>
+                  <li>
+                    <button class="signup-button" onclick="window.location.href='register/login.html'">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <span>Paskyra</span>
+                    </button>
+                </li>
                 </ul>
             </div>
             <i class="fa fa-bars" id="menuButton" onclick="showMenu()"></i>
@@ -152,6 +154,12 @@
                hideMenu();
            }
        });
+
+       document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector(".signup-button").addEventListener("click", function () {
+        window.location.href = "register/login.html";
+    });
+});
  
      </script>
 
