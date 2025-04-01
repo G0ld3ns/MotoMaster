@@ -953,26 +953,31 @@ td button:hover {
         padding: 8px;
     }
 }
-
-
 /* Vehicle selection section */
 .vehicle-select-section {
-    background: #fff;
-    padding: 30px 20px;
+    background: #ffffff;
+    padding: 40px 25px;
     margin-top: -40px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.15);
+    border-radius: 15px;
     max-width: 1100px;
     margin-left: auto;
     margin-right: auto;
+    transition: all 0.3s ease;
 }
 
+.vehicle-select-section:hover {
+    box-shadow: 0 0 25px rgba(0,0,0,0.2);
+}
+
+/* Dropdown container */
 .dropdown-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 25px;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
+    margin-bottom: 30px;
 }
 
 .dropdown-container div {
@@ -981,142 +986,193 @@ td button:hover {
 }
 
 .dropdown-container label {
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 15px;
+    color: #444;
 }
 
 .dropdown-container select {
-    padding: 10px;
-    min-width: 180px;
-    border-radius: 6px;
+    padding: 12px;
+    min-width: 200px;
+    border-radius: 8px;
     border: 1px solid #ccc;
+    font-size: 14px;
+    transition: border 0.3s ease;
 }
 
+.dropdown-container select:hover {
+    border-color: #0047AB;
+}
+
+/* Select button */
 .select-btn {
-    padding: 10px 20px;
+    padding: 12px 25px;
     background: #0047AB;
     color: white;
     border: none;
-    border-radius: 6px;
+    border-radius: 20px;
     font-weight: bold;
     cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.select-btn:hover {
+    background: #00398D;
 }
 
 /* Catalog section title */
 .catalog-title {
     text-align: center;
-    font-size: 28px;
+    font-size: 32px;
     margin-top: 50px;
-    font-weight: 600;
+    font-weight: 700;
+    color: #0047AB;
 }
 
 /* Product categories grid */
+#product-title{
+    text-align: center;
+    margin-top: 50px;
+}
 .product-categories {
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 30px;
     flex-wrap: wrap;
     padding: 40px 20px;
 }
 
 .product-categories .category {
     text-align: center;
-    max-width: 140px;
+    max-width: 150px;
+    transition: transform 0.3s ease;
+}
+
+.product-categories .category:hover {
+    transform: scale(1.1);
+    cursor: pointer;
 }
 
 .product-categories img {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     object-fit: contain;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
 }
 
+.product-categories img:hover {
+    transform: scale(1.05);
+}
+.center-title {
+    text-align: center;
+    width: 100%;
+    margin-top: 50px;
+}
+
+/* Back button */
 .back-btn {
-    margin: 20px auto;
+    margin: 30px auto;
     display: block;
     background: #0047AB;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 30px;
     border-radius: 8px;
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
+.back-btn:hover {
+    background: #00398D;
+}
+
+/* Product items container */
+#product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;  /* Horizontally centers the items */
+    align-items: center;      /* Vertically centers the items */
+    text-align: center;       /* Ensures text within product cards is centered */
+}
 .product-items {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 30px;
     justify-content: center;
-    padding: 30px 20px;
+    text-align: center;
+    align-items: center;
+    padding: 40px 20px;
 }
 
+/* Product card */
 .product-card {
-    padding: 20px;
+    padding: 25px;
     background: #f8f8f8;
-    border-radius: 8px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    min-width: 200px;
-    text-align: center;
-    font-weight: 500;
-}
-
-.product-card {
-    transition: all 0.3s ease;
-}
-
-.product-categories .category:hover {
-    transform: scale(1.05);
-    transition: 0.3s ease;
-}
-
-/* produktai in dalys */
-.product-card {
-    width: 280px;
-    background: #fff;
     border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.08);
-    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    width: 280px;
     text-align: center;
-    transition: 0.3s ease;
-    display: none; /* shown dynamically */
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* Product image */
 .product-card img {
-    max-width: 120px;
-    height: auto;
+    width: 80%;
+    height: 300px; /* Set a fixed height */
+    object-fit: fill; /* Ensures the images scale proportionally and fill the area */
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+.product-card img:hover {
+    transform: scale(1.1);
+}
+
+/* Product title */
+.product-card h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: 700;
+}
+
+/* Price box */
+.price-box {
     margin-bottom: 15px;
 }
 
-.product-card h3 {
-    font-size: 16px;
-    margin-bottom: 10px;
-}
-
-.price-box {
-    margin-bottom: 10px;
-}
-
+/* Price sale */
 .price-sale {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     color: #0066e0;
     margin-right: 10px;
 }
 
+/* Old price */
 .price-old {
-    font-size: 16px;
-    color: #555;
+    font-size: 18px;
+    color: #888;
     text-decoration: line-through;
 }
 
+/* Delivery info */
 .delivery-info {
-    font-size: 14px;
+    font-size: 15px;
     color: #1a8917;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
 }
 
 .delivery-info i {
@@ -1124,19 +1180,28 @@ td button:hover {
     color: #000;
 }
 
+/* Cart button */
 .cart-btn {
     background: #0047AB;
     color: white;
     border: 2px solid transparent;
-    padding: 10px 15px;
+    padding: 12px 18px;
     border-radius: 8px;
-    font-weight: bold;
+    font-weight: 700;
     cursor: pointer;
-    transition: 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .cart-btn:hover {
     background: white;
     color: #0047AB;
     border-color: #0047AB;
+}
+
+/* Smooth transition effects for hover, shadows, and text color */
+.product-card,
+.back-btn,
+.select-btn,
+.cart-btn {
+    transition: all 0.3s ease;
 }

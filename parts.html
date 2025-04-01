@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="lt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dalys | MotorMaster</title>
+    <meta name="viewport" content="with=device-width, initial-scale=1.0">
+    <title>MotorMaster</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css>
 
 </head>
 <body>
@@ -23,6 +24,12 @@
                     <li><a href="vehicles.html">Automobiliai</a></li>
                     <li><a href="parts.html">Dalys</a></li>
                     <li><a href="service.html">Servisas</a></li>
+                    <li>
+                        <button class="signup-button" onclick="window.location.href='register/login.html'">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <span>Paskyra</span>
+                        </button>
+                    </li>
                 </ul>
             </div>
             <i class="fa fa-bars" id="menuButton" onclick="showMenu()"></i>
@@ -60,8 +67,10 @@
                     <label for="engine">Variklis</label>
                     <div id="engine-container"></div>
                 </div>
-                
-                <button class="select-btn" onclick="filterProductsByVehicle()">Pasirinkti</button>
+                <div>
+                    <button class="select-btn" onclick="filterProductsByVehicle()">Pasirinkti</button>
+                </div>
+        
 
             </div>
         </section>
@@ -92,8 +101,7 @@
 
     <!-- Detaliu subcategories -->
     <section id="detales-subcategories" style="display: none;">
-        <button class="back-btn" onclick="goBackToMain()">← Grįžti į katalogą</button>
-        <h2>Detalės</h2>
+        <h2 class="center-title">Detalės</h2>
         <div class="product-categories">
             <div class="category" onclick="showProducts('Stabdžių diskai')">
                 <img src="images/Dalys/stabdziuDiskasMain.jpg" alt="Diskai">
@@ -104,12 +112,12 @@
                 <p>Filtrai</p>
             </div>
         </div>
+        <button class="back-btn" onclick="goBackToMain()">← Grįžti į katalogą</button>
     </section>
     
 
     <!-- PRODUCT LIST SECTION -->
     <section id="product-list" style="display: none;">
-        <button class="back-btn" onclick="goBack()">← Grįžti į katalogą</button>
         <h2 id="product-title">Produktai</h2>
         <div class="product-items">
             <!-- Alyvos -->
@@ -265,6 +273,7 @@
         </div>
     
         </div>
+        <button class="back-btn" onclick="goBackToMain()">← Grįžti į katalogą</button>
     </section>
     
 
@@ -330,9 +339,15 @@
         }
         
         function goBackToMain() {
-            document.getElementById("detales-subcategories").style.display = "none";
-            document.getElementById("category-grid").style.display = "block";
-        }
+    document.getElementById("detales-subcategories").style.display = "none";
+    document.getElementById("category-grid").style.display = "block";
+    document.getElementById("product-list").style.display = "none"; // Hide product list
+    // Show all product categories in the catalog view
+    const productCards = document.querySelectorAll(".product-card");
+    productCards.forEach(card => {
+        card.style.display = "inline-block";
+    });
+}
         
         function goBack() {
             document.getElementById("product-list").style.display = "none";
@@ -435,21 +450,12 @@
     });
 }
 
-
-
-        
         // INIT ON LOAD
         document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("make").addEventListener("change", updateModelAndEngineOptions);
             updateModelAndEngineOptions();
         });
         </script>
-        
-
-
-    
-        
-   
 </body>
 
 </html>
