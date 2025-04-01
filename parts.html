@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dalys | MotorMaster</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+    <section class="sub-header">
+        <nav>
+            <a href="mainPage.html"><img src="images/logo-cutout.png" alt="Logo"></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" id="closeMenu" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="mainPage.html">Pagrindinis</a></li>
+                    <li><a href="about.html">Apie mus</a></li>
+                    <li><a href="vehicles.html">Automobiliai</a></li>
+                    <li><a href="parts.html">Dalys</a></li>
+                    <li><a href="service.html">Servisas</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" id="menuButton" onclick="showMenu()"></i>
+        </nav>
+        <h1>Automobilių dalys</h1>
+    </section>
+
+    <!-- FILTERS -->
+    <section id="vehicle-filters">
+        <section class="vehicle-select-section">
+            <div class="dropdown-container">
+                <div>
+                    <label for="year">Metai</label>
+                    <select id="year">
+                        <option>2019</option>
+                        <option>2020</option>
+                        <option>2021</option>
+                        <option>2022</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="make">Gamintojas</label>
+                    <select id="make">
+                        <option>BMW</option>
+                        <option>Porsche</option>
+                        <option>Mercedes-Benz</option>
+                        <option>Volkswagen</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="model">Modelis</label>
+                    <select id="model"></select>
+                </div>
+                <div>
+                    <label for="engine">Variklis</label>
+                    <div id="engine-container"></div>
+                </div>
+                
+                <button class="select-btn" onclick="filterProductsByVehicle()">Pasirinkti</button>
+
+            </div>
+        </section>
+    </section>
+
+    <!-- CATEGORY GRID -->
+    <section id="category-grid">
+        <h2 class="catalog-title">Produktų katalogas</h2>
+        <div class="product-categories">
+            <div class="category" onclick="showProducts('Alyvos'); filterProductsByVehicle();">
+                <img src="images/Dalys/alyvos.png" alt="Alyvos">
+                <p>Alyvos</p>
+            </div>
+            <div class="category" onclick="showDetalesSubcategories()">
+                <img src="images/Dalys/dalys.webp" alt="Detalės">
+                <p>Detalės</p>
+            </div>            
+            <div class="category" onclick="showProducts('Chemija')">
+                <img src="images/Dalys/chemija.jpg" alt="Chemija">
+                <p>Chemija</p>
+            </div>
+            <div class="category" onclick="showProducts('Išorės aksesuarai')">
+                <img src="images/Dalys/aksesuarai.jpg" alt="Išorės aksesuarai">
+                <p>Išorės aksesuarai</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detaliu subcategories -->
+    <section id="detales-subcategories" style="display: none;">
+        <button class="back-btn" onclick="goBackToMain()">← Grįžti į katalogą</button>
+        <h2>Detalės</h2>
+        <div class="product-categories">
+            <div class="category" onclick="showProducts('Stabdžių diskai')">
+                <img src="images/Dalys/stabdziuDiskasMain.jpg" alt="Diskai">
+                <p>Stabdžių diskai</p>
+            </div>
+            <div class="category" onclick="showProducts('Filtrai')">
+                <img src="images/Dalys/filtraiMain.jpg" alt="Filtrai">
+                <p>Filtrai</p>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- PRODUCT LIST SECTION -->
+    <section id="product-list" style="display: none;">
+        <button class="back-btn" onclick="goBack()">← Grįžti į katalogą</button>
+        <h2 id="product-title">Produktai</h2>
+        <div class="product-items">
+            <!-- Alyvos -->
+
+            <!-- LiquiMoly1 -->
+            <div class="product-card" data-category="Alyvos" data-vehicle="">
+                <img src="images/Dalys/alyva1.webp" alt="Liqui Moly Oil">
+                <h3>Liqui Moly pusiau sintetinė variklinė alyva SAE 10W-40 1L</h3>
+                <div class="price-box">
+                    <span class="price-sale">10.00 €</span>
+                    <span class="price-old">12.09 €</span>
+                </div>
+                <div class="delivery-info">
+                    <p><i class="fa-solid fa-store"></i> nuo šiandien, <strong>16:00</strong></p>
+                    <p><i class="fa-solid fa-truck"></i> iki šeštadienio, <strong>15:30</strong></p>
+                </div>
+                <button class="cart-btn">Pridėti į krepšelį</button>
+            </div>
+
+            <!-- Castrol1 -->
+            <div class="product-card" data-category="Alyvos"
+            >
+                <img src="images/Dalys/alyva2.jpg" alt="Castrol Oil">
+                <h3>Castrol visiškai sintetinė variklinė alyva SAE 5W-30 4L</h3>
+                <div class="price-box">
+                    <span class="price-sale">57 €</span>
+                    <span class="price-old">60 €</span>
+                </div>
+                <div class="delivery-info">
+                    <p><i class="fa-solid fa-store"></i> nuo šiandien, <strong>16:00</strong></p>
+                    <p><i class="fa-solid fa-truck"></i> iki šeštadienio, <strong>15:30</strong></p>
+                </div>
+                <button class="cart-btn">Pridėti į krepšelį</button>
+            </div>
+            
+            <!-- Mobil1 -->
+            <div class="product-card" data-category="Alyvos">
+                <img src="images/Dalys/alyva3.webp" alt="Mobil Oil">
+                <h3>Mobil 1 sintetinė variklinė alyva SAE 5W-30 1L</h3>
+                <div class="price-box">
+                    <span class="price-sale">19.56 €</span>
+                    <span class="price-old">21.49 €</span>
+                </div>
+                <div class="delivery-info">
+                    <p><i class="fa-solid fa-store"></i> nuo šiandien, <strong>16:00</strong></p>
+                    <p><i class="fa-solid fa-truck"></i> iki šeštadienio, <strong>15:30</strong></p>
+                </div>
+                <button class="cart-btn">Pridėti į krepšelį</button>
+            </div>
+    
+            <!-- Chemija -->
+            <div class="product-card" data-category="Chemija">
+                <img src="images/Dalys/chemija1.jpg" alt="Valiklis Sonax">
+                <h3>SONAX AUTOMOBILIO SALONO VALIKLIS 0,5L</h3>
+                <div class="price-box">
+                    <span class="price-sale">5.79 €</span>
+                    <span class="price-old">7 €</span>
+                </div>
+                <div class="delivery-info">
+                    <p><i class="fa-solid fa-store"></i> nuo šiandien, <strong>16:00</strong></p>
+                    <p><i class="fa-solid fa-truck"></i> iki šeštadienio, <strong>15:30</strong></p>
+                </div>
+                <button class="cart-btn">Pridėti į krepšelį</button>
+            </div>
+
+            <div class="product-card" data-category="Chemija">
+                <img src="images/Dalys/chemija2.webp" alt="Valiklis Turtle">
+                <h3>Automobilių stiklų valiklis Turtle Wax, 0.5 l</h3>
+                <div class="price-box">
+                    <span class="price-sale">7.59 €</span>
+                    <span class="price-old">9.99 €</span>
+                </div>
+                <div class="delivery-info">
+                    <p><i class="fa-solid fa-store"></i> nuo šiandien, <strong>16:00</strong></p>
+                    <p><i class="fa-solid fa-truck"></i> iki šeštadienio, <strong>15:30</strong></p>
+                </div>
+                <button class="cart-btn">Pridėti į krepšelį</button>
+            </div>
+    
+
+                <div class="product-card" data-category="Chemija">
+                    <img src="images/Dalys/chemija3.webp" alt="Sluoste Sonax">
+                    <h3>SONAX mikropluošto šluostė automobilio sausinimui</h3>
+                    <div class="price-box">
+                        <span class="price-sale">18.57 €</span>
+                        <span class="price-old">20.00 €</span>
+                    </div>
+                    <div class="delivery-info">
+                        <p><i class="fa-solid fa-store"></i> nuo šiandien, <strong>16:00</strong></p>
+                        <p><i class="fa-solid fa-truck"></i> iki šeštadienio, <strong>15:30</strong></p>
+                </div>
+                <button class="cart-btn">Pridėti į krepšelį</button>
+            </div>
+            <!-- Detalės -->
+             <!-- Stabdziu diskai -->
+            <div class="product-card" data-category="Stabdžių diskai">
+                <img src="images/Dalys/stabdziuDiskas1.jpg" alt="Stabdžių diskas Rotinger">
+                <h3>Rotinger RT2911HP-GLT5 priekinių stabdžių diskas</h3>
+                <div class="price-box">
+                    <span class="price-sale">34.55 €</span>
+                    <span class="price-old">89.00 €</span>
+                </div>
+                <div class="delivery-info">
+                    <p><i class="fa-solid fa-store"></i> nuo šiandien, <strong>16:00</strong></p>
+                    <p><i class="fa-solid fa-truck"></i> iki šeštadienio, <strong>15:30</strong></p>
+                </div>
+                <button class="cart-btn">Pridėti į krepšelį</button>
+            </div>
+
+            <div class="product-card" data-category="Stabdžių diskai">
+                <img src="images/Dalys/satbdziuDiskas2.jpg" alt="Stabdžių diskas BRP">
+                <h3>BRP BD-6548 priekinių stabdžių diskas</h3>
+                <div class="price-box">
+                    <span class="price-sale">31.35 €</span>
+                    <span class="price-old">33.00 €</span>
+                </div>
+                <div class="delivery-info">
+                    <p><i class="fa-solid fa-store"></i> nuo šiandien, <strong>16:00</strong></p>
+                    <p><i class="fa-solid fa-truck"></i> iki šeštadienio, <strong>15:30</strong></p>
+                </div>
+                <button class="cart-btn">Pridėti į krepšelį</button>
+            </div>
+            
+            <!-- Filtrai -->
+             <!-- tepalu -->
+             <div class="product-card" data-category="Filtrai">
+                <img src="images/Dalys/alyvosFiltras1.jpg" alt="Alyvos filtras HiFi">
+                <h3>Alyvos fltras HiFi</h3>
+                <div class="price-box">
+                    <span class="price-sale">7.12 €</span>
+                    <span class="price-old">10 €</span>
+                </div>
+                <div class="delivery-info">
+                    <p><i class="fa-solid fa-store"></i> nuo šiandien, <strong>16:00</strong></p>
+                    <p><i class="fa-solid fa-truck"></i> iki šeštadienio, <strong>15:30</strong></p>
+                </div>
+                <button class="cart-btn">Pridėti į krepšelį</button>
+            </div>
+
+            <!-- Isores aksesuarai -->
+            <div class="product-card" data-category="Išorės aksesuarai">
+                <img src="images/Dalys/adro1.webp" alt="AdroKit">
+                <h3>Adro - Wide Body Kit BMW M4 G82</h3>
+                <div class="price-box">
+                    <span class="price-sale">39 046.00 €</span>
+                    <span class="price-old">47 245.66 €</span>
+                </div>
+                <div class="delivery-info">
+                    <p><i class="fa-solid fa-store"></i> nuo šiandien, <strong>16:00</strong></p>
+                    <p><i class="fa-solid fa-truck"></i> iki šeštadienio, <strong>15:30</strong></p>
+            </div>
+            <button class="cart-btn">Pridėti į krepšelį</button>
+        </div>
+    
+        </div>
+    </section>
+    
+
+    <!-- FOOTER -->
+    <section class="footer">
+        <h4>Neradote patinkančio automobilio? <a href="about.html#contact-us" class="contact-link">Kreipkitės!</a></h4>
+        <p>Automobiliai, jų priežiūra ir dalys – mes žinome, kaip juos paversti tobulais!<br> Parduodame, taisome ir užsakome visas reikiamas dalis, kad jūsų kelionės būtų sklandžios ir be rūpesčių.</p>
+        <div class="icons">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-linkedin"></i>
+        </div>
+    </section>
+
+    <!-- SCRIPT -->
+    <script>
+        let currentCategory = "";
+        // NAVIGATION MENU
+        function showMenu() {
+            document.getElementById("navLinks").style.right = "0";
+        }
+        
+        function hideMenu() {
+            document.getElementById("navLinks").style.right = "-200px";
+        }
+        
+        window.addEventListener("scroll", function () {
+            let scrollTop = window.scrollY || document.documentElement.scrollTop;
+            if (scrollTop > 0) hideMenu();
+        });
+        
+        document.addEventListener("click", function (event) {
+            const navLinks = document.getElementById("navLinks");
+            const menuButton = document.getElementById("menuButton");
+            const closeMenu = document.getElementById("closeMenu");
+            if (!navLinks.contains(event.target) && event.target !== menuButton && event.target !== closeMenu) {
+                hideMenu();
+            }
+        });
+        
+        // CATEGORY HANDLING
+        function showProducts(category) {
+    currentCategory = category; // track it globally!
+
+    document.getElementById("category-grid").style.display = "none";
+    document.getElementById("detales-subcategories").style.display = "none";
+    document.getElementById("product-list").style.display = "block";
+    document.getElementById("product-title").textContent = category + " produktai";
+
+    // Show all in category initially
+    const productCards = document.querySelectorAll(".product-card");
+    productCards.forEach(card => {
+        const belongsTo = card.getAttribute("data-category")?.trim();
+        card.style.display = (belongsTo === category) ? "inline-block" : "none";
+    });
+}
+
+        
+        function showDetalesSubcategories() {
+            document.getElementById("category-grid").style.display = "none";
+            document.getElementById("detales-subcategories").style.display = "block";
+        }
+        
+        function goBackToMain() {
+            document.getElementById("detales-subcategories").style.display = "none";
+            document.getElementById("category-grid").style.display = "block";
+        }
+        
+        function goBack() {
+            document.getElementById("product-list").style.display = "none";
+            if (document.getElementById("detales-subcategories").style.display === "block") {
+                document.getElementById("detales-subcategories").style.display = "block";
+            } else {
+                document.getElementById("category-grid").style.display = "block";
+            }
+        }
+        
+        // VEHICLE DATA
+        const vehicleData = [
+            { make: "Porsche", model: "911 Carrera", engine: "3.0 L Twin-Turbo Flat-6, Benz." },
+            { make: "Porsche", model: "911 Turbo S", engine: "3.8 L Twin-Turbo Flat-6, Benz." },
+            { make: "Porsche", model: "911 GT3", engine: "4.0 L NA Flat-6, Benz." },
+            { make: "BMW", model: "G30", engine: "3.0 L B58 I6, Benz." },
+            { make: "BMW", model: "G30", engine: "2.0 L B48 I4, Benz." },
+            { make: "BMW", model: "F82", engine: "3.0 L S55 I6 Twin-Turbo, Benz." },
+            { make: "Mercedes-Benz", model: "C63 AMG", engine: "4.0 L V8 Biturbo (M177), Benz." },
+            { make: "Mercedes-Benz", model: "A45 AMG", engine: "2.0 L I4 Turbo (M133), Benz." },
+            { make: "Mercedes-Benz", model: "E53 AMG", engine: "3.0 L I6 Turbo Mild Hybrid, Benz." },
+            { make: "Volkswagen", model: "Golf R", engine: "2.0 L EA888 Gen I4 Turbo, Benz." },
+            { make: "Volkswagen", model: "Arteon", engine: "2.0 L TSI I4 Turbo, Benz." }
+        ];
+        
+        // DYNAMIC DROPDOWN + ENGINE HANDLING
+        function updateModelAndEngineOptions() {
+            const make = document.getElementById("make").value.trim();
+            const modelSelect = document.getElementById("model");
+            const engineContainer = document.getElementById("engine-container");
+            modelSelect.innerHTML = "";
+        
+            const filteredByMake = vehicleData.filter(car => car.make.trim() === make);
+            const models = [...new Set(filteredByMake.map(car => car.model))];
+        
+            models.forEach(model => {
+                const opt = document.createElement("option");
+                opt.value = opt.text = model;
+                modelSelect.appendChild(opt);
+            });
+        
+            modelSelect.addEventListener("change", () => {
+                const selectedModel = modelSelect.value.trim();
+                const engines = vehicleData
+                    .filter(car => car.make === make && car.model === selectedModel)
+                    .map(car => car.engine);
+        
+                engineContainer.innerHTML = "";
+        
+                if (engines.length === 1) {
+                    const text = document.createElement("p");
+                    text.textContent = engines[0];
+                    text.setAttribute("id", "engine");
+                    engineContainer.appendChild(text);
+                } else {
+                    const engineSelect = document.createElement("select");
+                    engineSelect.id = "engine";
+                    engines.forEach(engine => {
+                        const opt = document.createElement("option");
+                        opt.value = opt.text = engine;
+                        engineSelect.appendChild(opt);
+                    });
+                    engineContainer.appendChild(engineSelect);
+                }
+            });
+        
+            modelSelect.dispatchEvent(new Event("change")); // initial engine render
+        }
+        
+        // PRODUCT FILTERING BY VEHICLE
+        function filterProductsByVehicle() {
+    const make = document.getElementById("make").value.trim();
+    const model = document.getElementById("model").value.trim();
+    const engineEl = document.getElementById("engine");
+
+    let engine = "";
+    if (engineEl) {
+        if (engineEl.tagName === "SELECT") {
+            engine = engineEl.value.trim();
+        } else {
+            engine = engineEl.textContent.trim();
+        }
+    }
+
+    const cards = document.querySelectorAll(".product-card");
+
+    cards.forEach(card => {
+        const cardCategory = card.getAttribute("data-category")?.trim();
+        const cMake = card.dataset.make?.trim();
+        const cModel = card.dataset.model?.trim();
+        const cEngine = card.dataset.engine?.trim();
+
+        const matchCategory = cardCategory === currentCategory;
+        const matchMake = !cMake || make === cMake;
+        const matchModel = !cModel || model === cModel;
+        const matchEngine = !cEngine || engine === cEngine;
+
+        const shouldShow = matchCategory && matchMake && matchModel && matchEngine;
+        card.style.display = shouldShow ? "inline-block" : "none";
+    });
+}
+
+
+
+        
+        // INIT ON LOAD
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("make").addEventListener("change", updateModelAndEngineOptions);
+            updateModelAndEngineOptions();
+        });
+        </script>
+        
+
+
+    
+        
+   
+</body>
+
+</html>

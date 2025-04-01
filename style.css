@@ -734,3 +734,188 @@ h3{
 }
 
 
+/* Vehicle selection section */
+.vehicle-select-section {
+    background: #fff;
+    padding: 30px 20px;
+    margin-top: -40px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.dropdown-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.dropdown-container div {
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown-container label {
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.dropdown-container select {
+    padding: 10px;
+    min-width: 180px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.select-btn {
+    padding: 10px 20px;
+    background: #0047AB;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Catalog section title */
+.catalog-title {
+    text-align: center;
+    font-size: 28px;
+    margin-top: 50px;
+    font-weight: 600;
+}
+
+/* Product categories grid */
+.product-categories {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding: 40px 20px;
+}
+
+.product-categories .category {
+    text-align: center;
+    max-width: 140px;
+}
+
+.product-categories img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.back-btn {
+    margin: 20px auto;
+    display: block;
+    background: #0047AB;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.product-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 30px 20px;
+}
+
+.product-card {
+    padding: 20px;
+    background: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    min-width: 200px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.product-card {
+    transition: all 0.3s ease;
+}
+
+.product-categories .category:hover {
+    transform: scale(1.05);
+    transition: 0.3s ease;
+}
+
+/* produktai in dalys */
+.product-card {
+    width: 280px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.08);
+    padding: 20px;
+    text-align: center;
+    transition: 0.3s ease;
+    display: none; /* shown dynamically */
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-card img {
+    max-width: 120px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.price-box {
+    margin-bottom: 10px;
+}
+
+.price-sale {
+    font-size: 18px;
+    font-weight: bold;
+    color: #0066e0;
+    margin-right: 10px;
+}
+
+.price-old {
+    font-size: 16px;
+    color: #555;
+    text-decoration: line-through;
+}
+
+.delivery-info {
+    font-size: 14px;
+    color: #1a8917;
+    margin-bottom: 12px;
+}
+
+.delivery-info i {
+    margin-right: 6px;
+    color: #000;
+}
+
+.cart-btn {
+    background: #0047AB;
+    color: white;
+    border: 2px solid transparent;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.cart-btn:hover {
+    background: white;
+    color: #0047AB;
+    border-color: #0047AB;
+}
