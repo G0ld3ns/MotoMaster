@@ -16,13 +16,20 @@
         <nav>
             <a href="mainPage.html"><img src="images/logo-cutout.png"></a>
             <div class="nav-links" id="navLinks">
-                <i class="fa fa-times" id="closeMenu" onclick="hideMenu()"></i>
+                <i class="fa fa-times" onclick="hideMenu()"></i>
                 <ul>
-                    <li><a href="mainPage.html">Pagrindinis</a></li>
-                    <li><a href="about.html">Apie mus</a></li>
-                    <li><a href="vehicles.html">Automobiliai</a></li>
-                    <li><a href="parts.html">Dalys</a></li>
-                    <li><a href="service.html">Servisas</a></li>
+
+                  <li><a href="mainPage.html">Pagrindinis</a></li>
+                  <li><a href="about.html">Apie mus</a></li>
+                  <li><a href="vehicles.html">Automobiliai</a></li>
+                  <li><a href="parts.html">Dalys</a></li>
+                  <li><a href="service.html">Servisas</a></li>
+                  <li>
+                    <button class="signup-button" onclick="window.location.href='register/login.html'">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <span>Paskyra</span>
+                    </button>
+                </li>                
                 </ul>
             </div>
             <i class="fa fa-bars" id="menuButton" onclick="showMenu()"></i>
@@ -48,6 +55,8 @@
         <!-- Vehicle Cards will be dynamically added here -->
     </div>
 
+    
+
     <section class="footer">
         <h4>Neradote patinkančio automobilio? <a href="about.html#contact-us" class="contact-link">Kreipkitės!</a></h4>
         <p>Automobiliai, jų priežiūra ir dalys – mes žinome, kaip juos paversti tobulais!<br> Parduodame, taisome ir užsakome visas reikiamas dalis, kad jūsų kelionės būtų sklandžios ir be rūpesčių.</p>
@@ -59,175 +68,31 @@
         </div>
     </section>
 
-    <script>
-      // Array to store the vehicles data
-      const vehicles = [
-          {
-              brand: "Mercedes-Benz",
-              model: "CLS53 AMG",
-              price: 56000,
-              image: "images/mers.jpg",
-              year: 2023,
-              engine: "3.0 L, 6 cilindrų, I6",
-              horsepower: "435 AG (320 kW)",
-              torque: "520 Nm",
-              drivetrain: "4MATIC",
-              transmission: "9G-TRONIC automatic"
-          },
-          {
-              brand: "Volkswagen",
-              model: "Golf GTI MK8",
-              price: 42000,
-              image: "images/auto2.jpg",
-              year: 2023,
-              engine: "2.0 L, 4 cilindrų, I4 Turbo",
-              horsepower: "245 AG (180 kW)",
-              torque: "370 Nm",
-              drivetrain: "FWD",
-              transmission: "7-speed DSG"
-          },
-          {
-              brand: "Porsche",
-              model: "911 Turbo S",
-              price: 230000,
-              image: "images/porche_911_turboS_2020.webp",
-              year: 2020,
-              engine: "3.8 L, 6 cilindrų, turbo",
-              horsepower: "650 AG (478 kW)",
-              torque: "800 Nm",
-              drivetrain: "AWD",
-              transmission: "8-speed PDK"
-          },
-          {
-              brand: "Volkswagen",
-              model: "Scirocco R",
-              price: 25000,
-              image: "images/2017-volkswagen-scirocco.jpg",
-              year: 2017,
-              engine: "2.0 L, 4 cilindrų, turbo",
-              horsepower: "280 AG (206 kW)",
-              torque: "350 Nm",
-              drivetrain: "FWD",
-              transmission: "6-speed DSG"
-          },
-          {
-              brand: "Toyota",
-              model: "GR Supra",
-              price: 65000,
-              image: "images/ToyotaSupta_GR.jpg",
-              year: 2023,
-              engine: "3.0 L, 6 cilindrų, turbo",
-              horsepower: "340 AG (250 kW)",
-              torque: "500 Nm",
-              drivetrain: "RWD",
-              transmission: "6-speed manual"
-          }
-      ];
-  
-      // Function to display the vehicles
-      function displayVehicles(filteredVehicles) {
-          const container = document.querySelector(".card-container");
-          container.innerHTML = "";
-  
-          filteredVehicles.forEach(vehicle => {
-              const card = `
-              <div class="maincontainer">
-                  <div class="thecard" onclick="flipCard(this)">
-                      <div class="card_front">
-                          <img src="${vehicle.image}" alt="Car Image">
-                          <h3>${vehicle.brand} ${vehicle.model}</h3>
-                      </div>
-                      <div class="card_back">
-                          <h3>${vehicle.brand} ${vehicle.model}</h3>
-                          <p>
-                              Pagaminimo metai: ${vehicle.year}<br>
-                              Variklis: ${vehicle.engine}<br>
-                              Galia: ${vehicle.horsepower}<br>
-                              Sukimo momentas: ${vehicle.torque}<br>
-                              Varantieji ratai: ${vehicle.drivetrain}<br>
-                              Pavarų dėžė: ${vehicle.transmission}<br>
-                              Kaina: ${vehicle.price} €<br>
-                          </p>
-                           <div class="card-buttons">
-                           <button class="btn-more-info">Plačiau</button>
-                           <button class="btn-compare">Įtraukti į palyginimą</button>
-                           </div>
-                      </div>
-                  </div>
-              </div>`;
-              container.innerHTML += card;
-          });
-      }
-  
-      // Function to filter vehicles based on search input
-      function filterVehicles() {
-          const searchQuery = document.getElementById("searchBar").value.toLowerCase();
-          const filteredVehicles = vehicles.filter(vehicle => 
-              vehicle.brand.toLowerCase().includes(searchQuery) || 
-              vehicle.model.toLowerCase().includes(searchQuery)
-          );
-          displayVehicles(filteredVehicles);
-      }
-  
-      // Function to sort vehicles based on the selected option
-      function sortVehicles() {
-          const sortBy = document.getElementById("sortBy").value;
-          let sortedVehicles = [...vehicles];
-  
-          if (sortBy === "brand") {
-              sortedVehicles.sort((a, b) => a.brand.localeCompare(b.brand));
-          } else if (sortBy === "model") {
-              sortedVehicles.sort((a, b) => a.model.localeCompare(b.model));
-          } else if (sortBy === "price") {
-              sortedVehicles.sort((a, b) => a.price - b.price);
-          }
-  
-          displayVehicles(sortedVehicles);
-      }
-  
-      // Initially display all vehicles
-      displayVehicles(vehicles);
-  
-      // Flip Card function
-      function flipCard(card) {
-          card.classList.toggle("flip");
-      }
-  
-      // JavaScript for toggle menu
-      var navLinks = document.getElementById("navLinks");
-      var menuButton = document.getElementById("menuButton");
-      var closeMenu = document.getElementById("closeMenu");
-      var lastScrollTop = 0;
-  
-      // Show menu function
-      function showMenu() {
-          navLinks.style.right = "0";
-      }
-  
-      // Hide menu function
-      function hideMenu() {
-          navLinks.style.right = "-200px";
-      }
-  
-      // Detect scroll direction
-      window.addEventListener("scroll", function () {
-          let scrollTop = window.scrollY || document.documentElement.scrollTop;
-  
-          if (scrollTop > lastScrollTop) {
-              // User is scrolling down - hide the menu
-              hideMenu();
-          } 
-          // Update last scroll position
-          lastScrollTop = scrollTop;
-      });
-  
-      // Hide menu when clicking outside
-      document.addEventListener("click", function (event) {
-          if (!navLinks.contains(event.target) && event.target !== menuButton && event.target !== closeMenu) {
-              hideMenu();
-          }
-      });
-  </script>
+
+
+    <div id="compareIcon" onclick="showComparisonTable()">
+        <i class="fa fa-balance-scale" aria-hidden="true"></i>
+</div>
+
+<div id="comparisonTableOverlay"></div>
+
+<div id="comparisonTableContainer">
+    <!-- Close Button -->
+    <button onclick="closeComparisonTable()" id="cmpr-close-btn">X</button>
+    
+    <!-- Title "Palyginimas" inside the container -->
+    <div id="TableTitle">
+        Palyginimas
+    </div>
+    
+    <!-- Comparison Table Content -->
+    <div id="comparisonTableContent">
+        <!-- The table will be inserted dynamically here -->
+    </div>
+</div>
+
+
+    <script src="scriptVehicle.js"></script>
   
 </body>
 
